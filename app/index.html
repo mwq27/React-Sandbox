@@ -1,0 +1,69 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>React sandbox</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+    </head>
+    <body>
+    <!-- render function can only return a single node.  You can have child nodes inside of one node, but never 2 sibling nodes -->
+    <script type="text/jsx">
+        /** @jsx React.DOM */
+        var APP = React.createClass({
+            getDefaultProps : function(){ // Setting Default properties
+                return {
+                    txt: "Here's some default text.  You haven't set the 'txt' attribute on the <APP/> element",
+                    cat: 0
+                }
+            },
+            propTypes : { // Define what types of properties to expect
+                txt: React.PropTypes.String, // this is optional
+                cat: React.PropTypes.number.isRequired // this is required now
+            },
+            render: function(){
+                return (
+                <div>
+                    <h1>{this.props.txt}</h1>
+                    <b>Bolded</b>
+                </div>
+                )
+
+            }
+        });
+        React.renderComponent(<APP cat={12} />, document.body);
+    </script>
+
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="bower_components/react/react.js"></script>
+        <script src="bower_components/react/JSXTransformer.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
