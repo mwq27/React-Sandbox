@@ -16,37 +16,18 @@
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"/>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 
     </head>
     <body>
     <!-- render function can only return a single node.  You can have child nodes inside of one node, but never 2 sibling nodes -->
-    <script type="text/jsx">
-        /** @jsx React.DOM */
-        var APP = React.createClass({
-            getDefaultProps : function(){ // Setting Default properties
-                return {
-                    txt: "Here's some default text.  You haven't set the 'txt' attribute on the <APP/> element",
-                    cat: 0
-                }
-            },
-            propTypes : { // Define what types of properties to expect
-                txt: React.PropTypes.String, // this is optional
-                cat: React.PropTypes.number.isRequired // this is required now
-            },
-            render: function(){
-                return (
-                <div>
-                    <h1>{this.props.txt}</h1>
-                    <b>Bolded</b>
-                </div>
-                )
+        <div class="container">
+            <h1>My React component</h1>
 
-            }
-        });
-        React.renderComponent(<APP cat={12} />, document.body);
-    </script>
+            <div id="example"></div>
+        </div>
 
 
 
@@ -63,7 +44,7 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="bower_components/react/react.js"></script>
         <script src="bower_components/react/JSXTransformer.js"></script>
-        <script src="scripts/main.js"></script>
+        <script src="build_jsx/app/scripts/newComponent.js"></script>
         <!-- endbuild -->
 </body>
 </html>

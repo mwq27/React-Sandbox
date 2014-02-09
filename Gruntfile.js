@@ -34,6 +34,10 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
+	        jsx: {
+		       files : ['app/scripts/*.jsx'],
+		       tasks : ['react']
+	        },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['test:watch']
@@ -60,6 +64,18 @@ module.exports = function (grunt) {
                 ]
             }
         },
+	    react: {
+		    dynamic_mappings: {
+			    files: [
+				    {
+					    expand: true,
+					    src: ['app/scripts/**/*.jsx'],
+					    dest: 'app/build_jsx/',
+					    ext: '.js'
+				    }
+			    ]
+		    }
+	    },
 
         // The actual grunt server settings
         connect: {
