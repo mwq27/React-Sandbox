@@ -4,7 +4,11 @@
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
     "modernizr": "~2.6.2",
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "angular": "~1.2.12",
+    "angular-route": "~1.2.12",
+    "angular-mocks": "~1.2.12",
+    "ngReact": "~0.0.1"
   },
   "devDependencies": {}
 }

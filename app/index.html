@@ -21,12 +21,14 @@
         <!-- endbuild -->
 
     </head>
-    <body>
+    <body ng-app="reactSandbox">
     <!-- render function can only return a single node.  You can have child nodes inside of one node, but never 2 sibling nodes -->
         <div class="container">
             <h1>My React component</h1>
 
             <div id="example"></div>
+
+            <ng-view></ng-view>
         </div>
 
 
@@ -42,9 +44,14 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/react/react.js"></script>
         <script src="bower_components/react/JSXTransformer.js"></script>
-        <script src="build_jsx/app/scripts/newComponent.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="scripts/ngApp.js"></script>
+    <script src="build_jsx/app/scripts/newComponent.js"></script>
+    <script src="bower_components/ngReact/ngReact.min.js"></script>
         <!-- endbuild -->
 </body>
 </html>

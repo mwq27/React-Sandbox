@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var APP = React.createClass({displayName: 'APP',
+window.APP = React.createClass({
 	getInitialState : function(){
 		return {
 			date: '1999/12/31',
@@ -26,7 +26,8 @@ var APP = React.createClass({displayName: 'APP',
 	getDefaultProps : function(){ // Setting Default properties
 		return {
 			txt: "Here's some default text.  You haven't set the 'txt' attribute on the <APP/> component",
-			cat: 0
+			cat: 100,
+			source : "scripts/data.json"
 		};
 	},
 	propTypes : { // Define what types of properties to expect
@@ -62,4 +63,4 @@ var APP = React.createClass({displayName: 'APP',
 
 	}
 });
-React.renderComponent(APP( {txt:"whatt it do", cat:12, source:"scripts/data.json"} ), document.getElementById("example"));
+//React.renderComponent(<APP txt="whatt it do" cat={12} source="scripts/data.json" />, document.getElementById("example"));
