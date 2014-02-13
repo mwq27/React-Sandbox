@@ -1,0 +1,33 @@
+{
+	"name": "Benjamin Leonardi",
+	"nickname": "Benni",
+	"wife": "Theresa Leonardi",
+	"likes": [
+		"tacos", "pina coladas", "photography"
+	],
+	"ocupation": "Professor",
+	"employer": "Accredit College of Eastern Delware (ACED)",
+	"email": [
+		{
+			"use": "work",
+			"address": "b.leonardi@aced.edu"
+		},
+		{
+			"use": "home",
+			"address": "bleonardi@gomail.com"
+		},
+		{
+			"use": "other",
+			"address": "benni@benniprojects.net"
+		}
+	],
+	"phone": [
+		{
+			"use": "work",
+			"number": "5481123695"
+		},
+		{	"use": "mobile",
+			"number": "4128294192"
+		}
+	]
+}
