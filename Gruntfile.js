@@ -10,10 +10,12 @@
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+//    require('load-grunt-tasks')(grunt);
 
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
+    require('jit-grunt')(grunt);
+
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -35,8 +37,8 @@ module.exports = function (grunt) {
                 }
             },
 	        jsx: {
-		       files : ['app/scripts/*.jsx'],
-		       tasks : ['react']
+		       files : ['app/scripts/**/*.jsx'],
+		       tasks : ['newer:react']
 	        },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
@@ -45,9 +47,9 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            compass: {
+            sass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass:server', 'autoprefixer']
+                tasks: ['sass:server', 'autoprefixer']
             },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -64,6 +66,18 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
+	    sass: {
+		    server :{
+			    options: {
+				    includePaths: ['<%= yeoman.app %>/bower_components/bourbon/app/assets/stylesheets'],
+				    outputStyle: 'nested'
+			    },
+			    files: {
+				    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+			    }
+		    }
+	    },
 	    react: {
 		    dynamic_mappings: {
 			    files: [

@@ -62,4 +62,4 @@ var APP = React.createClass({
 
 	}
 });
-React.renderComponent(<APP txt="whatt it do" cat={12} source="scripts/data.json" />, document.getElementById("example"));
+//React.renderComponent(<APP txt="whatt it do" cat={12} source="scripts/data.json" />, document.getElementById("example"));

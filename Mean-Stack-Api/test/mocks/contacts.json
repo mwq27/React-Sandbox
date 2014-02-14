@@ -2,7 +2,7 @@
 	{
 		"name": "Lauren Hennel",
 		"nickname": "El",
-		"ocupation": "Web Designer",
+		"occupation": "Web Designer",
 		"employer": "Emphatic Designs",
 		"email": [
 			{
@@ -31,7 +31,7 @@
 	{
 		"name": "Dave Zupon",
 		"nickname": "Zupe",
-		"ocupation": "UIX Developer",
+		"occupation": "UIX Developer",
 		"employer": "Rescue Absorbents",
 		"email": [
 			{
@@ -59,7 +59,7 @@
 	},
 	{
 		"name": "Lee Ann Roth",
-		"ocupation": "Java Architect",
+		"occupation": "Java Architect",
 		"employer": "Rescue Absorbents",
 		"email": [
 			{
@@ -84,7 +84,7 @@
 	{
 		"name": "Ryan Harvey",
 		"nickname": "Bird",
-		"ocupation": "SEO Analyst",
+		"occupation": "SEO Analyst",
 		"employer": "Accurate Productions",
 		"email": [
 			{

@@ -21,12 +21,18 @@ module.exports = function(app){
 	app.get('/api/contacts', function(req, res, next){
 		Contact.find().exec(function(err, contacts){
 			if(err) return next(err);
-			if(!contacts.length) res.send(404, 'You queried, but there were no contacts in the database.');
-//			res.jsonp(contacts);
+			if(!contacts.length) {
+				res.jsonp([{results : false}]);
+			}else{
+				res.jsonp(contacts);
+			}
 		});
 	});
 
 	app.post('/api/contacts', function(req, res, next){
+		res.header('Access-Control-Allow-Origin', '*');
+		res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
+		res.header('Access-Control-Allow-Headers', 'Content-Type');
 		var contact = new Contact(req.body);
 		contact.save(function(err){
 			if(err) return next(err);
