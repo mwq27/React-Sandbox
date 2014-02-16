@@ -30,7 +30,7 @@ var ContactBox = React.createClass({displayName: 'ContactBox',
 			dataType: "json",
 			data : contact,
 			success : function(msg){
-				this.loadContactsFromServer(); 
+				this.loadContactsFromServer();
 			}.bind(this)
 		});
 	},

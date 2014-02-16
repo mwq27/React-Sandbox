@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="example"></div>
+<div class="form">
+    <p>{this.state.data}</p>
+    <form onSubmit={this.handleSubmit}>
+        <fieldset>
+            <legend>Add New Contact</legend>
+            <label htmlFor="name">
+                <input type="text" placeholder="Name" ref="name"/>
+            </label>
+            <label htmlFor="lastname">
+                <input type="text" placeholder="Occupation" name="occupation" ref="occupation"/>
+            </label>
+            <label htmlFor="email">
+                <input type="text" placeholder="nickname" ref="nickname"/>
+            </label>
+            <label htmlFor="email">
+                <input type="email" placeholder="Email" ref="email"/>
+            </label>
+            <label htmlFor="phone">
+                <input type="text" placeholder="Phone Number" ref="phone"/>
+            </label>
+
+            <button type="submit" className="button">Save</button>
+        </fieldset>
+    </form>
+</div>
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script>
+    $(function(){
+        var examp = $("#example"),
+                elems = '',
+                html = $(".form").html();
+
+        for(var x = 0; x < 1000; x++){
+            elems += html;
+        }
+        examp.append(elems);
+    });
+
+</script>
+</body>
+</html>
