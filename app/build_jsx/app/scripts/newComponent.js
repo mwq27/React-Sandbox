@@ -2,7 +2,7 @@
 window.APP = React.createClass({
 	getInitialState : function(){
 		return {
-			date: '1999/12/31',
+			date: this.props.scope,
 			status : 'NotFromServer',
 			code : '1'
 		};
@@ -11,17 +11,22 @@ window.APP = React.createClass({
 		this.setState({
 			date: 'first date',
 			status : 'first status',
-			code : 'first code'
+			code : 'first code',
+			ngdata : ""
 		});
 	},
 	componentDidMount : function(){ // This fires after the initial rendering.  it's better to put ajax requests in here.
-		$.get(this.props.source, function(result){
-			this.setState({
-				date: result.date,
-				status : result.status,
-				code : result.code
-			});
-		}.bind(this));
+//		$.get(this.props.source, function(result){
+//			this.setState({
+//				date: this.props.scope.candy,
+//				status : result.status,
+//				code : result.code
+//			});
+//		}.bind(this));
+
+		this.setState({
+			ngdata : this.props.data
+		});
 	},
 	getDefaultProps : function(){ // Setting Default properties
 		return {
@@ -47,20 +52,28 @@ window.APP = React.createClass({
 			});
 		}.bind(this));
 	},
+	updateScope : function(){
+		var scope = this.props.scope;
+			scope.mydata.time = "1:30PM";
+		/*
+		Run an $apply so that the scope updates everywhere :)
+		 */
+		scope.$apply();
+
+	},
 	render: function(){
+		var scope = this.props.scope;
 		return (
 			React.DOM.div( {className:"row"}, 
 				React.DOM.p(null, this.props.txt),
-				React.DOM.p(null, this.props.cat),
+				React.DOM.p(null),
 				React.DOM.h2(null, "Date State : ", this.state.date),
 				React.DOM.h2(null, "Status State : ", this.state.status),
 				React.DOM.h2(null, "Code State : ", this.state.code),
-				React.DOM.button( {onClick:this.handleClick}, 
-				" Click me "
-				)
+				React.DOM.button( {onClick:scope.clickTest}, "Click me"),
+				React.DOM.button( {onClick:this.updateScope}, "Update the Scope")
 			)
 			)
-
 	}
 });
 //React.renderComponent(<APP txt="whatt it do" cat={12} source="scripts/data.json" />, document.getElementById("example"));
