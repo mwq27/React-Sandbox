@@ -2,9 +2,15 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"/>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<div id="example"></div>
+<div class="container">
+    <h1>My React component</h1>
+
+    <div id="example" class="large-12 small-12"></div>
+</div>
 <div class="form">
     <p>{this.state.data}</p>
     <form onSubmit={this.handleSubmit}>
