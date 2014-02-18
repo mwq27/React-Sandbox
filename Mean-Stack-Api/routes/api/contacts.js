@@ -12,35 +12,28 @@ module.exports = function(app){
 				res.send(404, 'Could not find a contact with ID: ' + id);
 			} else {
 				req.contact = contact;
-				next();	
+				next();
 			}
-			
+
 		});
 	});
 
 	app.get('/api/contacts', function(req, res, next){
-		Contact.find().exec(function(err, contacts){
+		Contact.find({}, function(err, contacts){
 			if(err) return next(err);
-			if(!contacts.length) {
-				res.jsonp([{results : false}]);
-			}else{
-				res.jsonp(contacts);
-			}
+			if(!contacts.length) res.jsonp({ results: 'none'});
+			else res.jsonp(contacts);
 		});
 	});
 
 	app.post('/api/contacts', function(req, res, next){
-		res.header('Access-Control-Allow-Origin', '*');
-		res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
-		res.header('Access-Control-Allow-Headers', 'Content-Type');
 		var contact = new Contact(req.body);
 		contact.save(function(err){
 			if(err) return next(err);
 			res.jsonp(201, contact);
 		});
-		
 	});
-	
+
 	app.get('/api/contacts/:contactID', function(req, res){
 		res.jsonp(req.contact);
 	});
@@ -58,6 +51,25 @@ module.exports = function(app){
 		contact.remove(function(err){
 			if (err) return next(err);
 			res.send(204);
+		});
+	});
+
+	app.get('/api/s/contacts', function(req, res, next){
+		_.each(req.query, function(value, key){
+			req.query[key] = new RegExp(value, 'i');
+		});
+		Contact.find(req.query, function(err, contacts){
+			if(err) return next(err);
+			else res.jsonp(contacts);
+		});
+	});
+	app.post('/api/s/contacts', function(req, res, next){
+		_.each(req.body, function(value, key){
+			req.body[key] = new RegExp(value, 'i');
+		});
+		Contact.find(req.body, function(err, contacts){
+			if(err) return next(err);
+			else res.jsonp(contacts);
 		});
 	});
 };

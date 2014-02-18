@@ -2,7 +2,7 @@
 var Contact = React.createClass({displayName: 'Contact',
 	render : function(){
 		return (
-			React.DOM.li( {className:"large-4"}, 
+			React.DOM.li( {className:""}, 
 				React.DOM.p(null, React.DOM.strong(null, "Name:"), this.props.name),
 				React.DOM.p(null, React.DOM.strong(null, "Email:"), this.props.email),
 				React.DOM.p(null, React.DOM.strong(null, "Phone:"), this.props.phone),

@@ -20,7 +20,6 @@ var ContactBox = React.createClass({
 	},
 	componentWillMount : function(){
 		this.loadContactsFromServer();
-//		setInterval(this.loadContactsFromServer, 1000);
 	},
 
 	handleContactSubmit: function(contact){

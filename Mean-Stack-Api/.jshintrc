@@ -8,7 +8,7 @@
     "newcap": true,
     "quotmark": "single",
     "undef": true,
-    "unused": true,
+    "unused": false,
     "strict": true,
     "smarttabs": false,
     "globals": {

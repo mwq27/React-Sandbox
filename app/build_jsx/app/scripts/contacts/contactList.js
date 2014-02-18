@@ -22,8 +22,10 @@ var ContactList = React.createClass({displayName: 'ContactList',
 
 
 		return (
-			React.DOM.ul( {className:"contactList circle large-4"}, 
+			React.DOM.div( {className:"large-8 columns"}, 
+			React.DOM.ul( {className:"contactList circle inline-list"}, 
 				contactNodes
+			)
 			)
 		);
 	}

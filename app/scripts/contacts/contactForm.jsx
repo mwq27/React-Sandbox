@@ -29,7 +29,7 @@ var NewContact = React.createClass({
 
 	render: function(){
 		return (
-			<div>
+			<div className="large-4 columns">
 				<p>{this.state.data}</p>
 			<form onSubmit={this.handleSubmit}>
 				<fieldset>

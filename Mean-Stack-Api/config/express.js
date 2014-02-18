@@ -1,12 +1,12 @@
 'use strict';
 
 var express = require('express');
-	/**
-	 * If using mongo stored sessions
-	 *
-	 * mongoStore = require('connect-mongo')(express),
-	 * flash = require('connect-flash'),
-	 */
+/**
+ * If using mongo stored sessions
+ *
+ * mongoStore = require('connect-mongo')(express),
+ * flash = require('connect-flash'),
+ */
 
 
 module.exports = function(app){
@@ -27,7 +27,7 @@ module.exports = function(app){
 	 * app.set('views', app.get('root') + '/root/path/to/views');
 	 * app.set('view engine', 'jade');
 	 */
-	
+
 	app.enable('jsonp callback');
 	app.configure(function(){
 		/**
@@ -35,8 +35,8 @@ module.exports = function(app){
 		 *
 		 * app.use(express.cookieParser());
 		 */
-		
-		// Body parsing middleware should be above methodOverride
+
+			// Body parsing middleware should be above methodOverride
 		app.use(express.urlencoded());
 		app.use(express.json());
 		// --
@@ -44,7 +44,7 @@ module.exports = function(app){
 
 		/**
 		 * If using sessions, specifically mongo stored sessions
-		 * 
+		 *
 		 * app.use(express.session({
 		 *	secret: 'MONGOSECRET',
 		 *	store: new mongoStore({
@@ -55,7 +55,7 @@ module.exports = function(app){
 		 *
 		 * app.use(flash());
 		 */
-		
+
 		app.use(app.router);
 
 		app.use(express.favicon());
@@ -63,15 +63,18 @@ module.exports = function(app){
 
 
 		app.use(function(err, req, res, next){
-			//This was an error
-			if (~err.message.indexOf('not found')) return next();
-			if (process.env.NODE_ENV !== 'test') console.log(err.stack);
-			
-			res.send(500);
+			var mongoErrors = ['MongoError', 'ValidationError', 'CastError'];
+			if(mongoErrors.indexOf(err.name) >= 0){
+				res.send(403, err.err);
+			} else next(err);
 		});
-		app.use(function(req, res){
-			//Did not match any routes, must be 404
-			res.send(404);
+
+		app.use(function(err, req, res, next){
+			//This was an error
+			if (process.env.NODE_ENV !== 'test') console.log(err.stack);
+
+			res.writeHead(err.code, err.message);
+			res.end(err.message);
 		});
 
 

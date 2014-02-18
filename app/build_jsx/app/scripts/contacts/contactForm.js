@@ -29,7 +29,7 @@ var NewContact = React.createClass({displayName: 'NewContact',
 
 	render: function(){
 		return (
-			React.DOM.div(null, 
+			React.DOM.div( {className:"large-4 columns"}, 
 				React.DOM.p(null, this.state.data),
 			React.DOM.form( {onSubmit:this.handleSubmit}, 
 				React.DOM.fieldset(null, 
