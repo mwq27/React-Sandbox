@@ -1,0 +1,117 @@
+[
+	{
+		"name": "Lauren Hennel",
+		"nickname": "El",
+		"occupation": "Web Designer",
+		"employer": "Emphatic Designs",
+		"email": [
+			{
+				"use": "work",
+				"address": "laurenhennel@emphatic.biz"
+			},
+			{
+				"use": "home",
+				"address": "lhennel@gomail.com"
+			},
+			{
+				"use": "other",
+				"address": "bulk@lhennel.io"
+			}
+		],
+		"phone": [
+			{
+				"use": "work",
+				"number": "88293931234"
+			},
+			{	"use": "mobile",
+				"number": "8142629372"
+			}
+		]
+	},
+	{
+		"name": "Dave Zupon",
+		"nickname": "Zupe",
+		"occupation": "UIX Developer",
+		"employer": "Rescue Absorbents",
+		"email": [
+			{
+				"use": "work",
+				"address": "dzupon@rescueabsorbents.com"
+			},
+			{
+				"use": "home",
+				"address": "zupe@yahoot.owl"
+			},
+			{
+				"use": "home",
+				"address": "d.zupon@stacked.org"
+			}
+		],
+		"phone": [
+			{
+				"use": "work",
+				"number": "8123394620"
+			},
+			{	"use": "mobile",
+				"number": "6147827228"
+			}
+		]
+	},
+	{
+		"name": "Lee Ann Roth",
+		"occupation": "Java Architect",
+		"employer": "Rescue Absorbents",
+		"email": [
+			{
+				"use": "work",
+				"address": "lroth@rescueabsorbents.com"
+			},
+			{
+				"use": "home",
+				"address": "leeannroth@gomail.com"
+			}
+		],
+		"phone": [
+			{
+				"use": "work",
+				"number": "8829392424"
+			},
+			{	"use": "mobile",
+				"number": "8145452839"
+			}
+		]
+	},
+	{
+		"name": "Ryan Harvey",
+		"nickname": "Bird",
+		"occupation": "SEO Analyst",
+		"employer": "Accurate Productions",
+		"email": [
+			{
+				"use": "work",
+				"address": "ryan.harvey@aproductions.org"
+			},
+			{
+				"use": "home",
+				"address": "rharvey@gomail.com"
+			},
+			{
+				"use": "other",
+				"address": "seoharvey@harveybird.io"
+			},
+			{
+				"use": "other",
+				"address": "birdmanfan@theforums.com"
+			}
+		],
+		"phone": [
+			{
+				"use": "work",
+				"number": "5352008232"
+			},
+			{	"use": "mobile",
+				"number": "4139277371"
+			}
+		]
+	}
+]

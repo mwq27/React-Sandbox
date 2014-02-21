@@ -1,6 +1,4 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
-
-@import 'sass-bootstrap/lib/bootstrap';
+@import 'bourbon';
 
 .browsehappy {
     margin: 0.2em 0;
@@ -63,6 +61,12 @@ body {
     p + h4 {
         margin-top: 28px;
     }
+}
+
+.contactList {
+  p {
+    margin-bottom: 0;
+  }
 }
 
 /* Responsive: Portrait tablets and up */
