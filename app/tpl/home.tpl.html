@@ -1,11 +1,11 @@
+<header>
+    <div ng-react-component="LoginArea"></div>
+</header>
+
+
 <button ng-click="turnOn()">Hide/Show</button>
 <p ng-bind="bindData"></p>
 
 <input type="text" ng-model="mydata.time"/>
 <pre>$scope.mydata = {{ mydata | json }}</pre>
 <div ng-react-component="APP" data="{{ mydata }}"  ng-if="testIf"></div>
-<ul>
-    <li ng-repeat="contact in contacts track by $index">
-
-    </li>
-</ul>

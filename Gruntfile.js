@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                 }
             },
 	        jsx: {
-		       files : ['app/scripts/*.jsx'],
+		       files : ['app/scripts/**/*.jsx'],
 		       tasks : ['react']
 	        },
             jstest: {

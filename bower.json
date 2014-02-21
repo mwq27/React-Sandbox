@@ -8,7 +8,11 @@
     "angular": "~1.2.12",
     "angular-route": "~1.2.12",
     "angular-mocks": "~1.2.12",
-    "ngReact": "~0.0.1"
+    "ngReact": "~0.0.1",
+    "react": "~0.9.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "react": "~0.9.0"
+  }
 }

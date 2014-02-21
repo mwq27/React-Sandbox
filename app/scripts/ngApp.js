@@ -2,7 +2,7 @@
  * Created by mwoods0 on 2/11/14.
  */
 "use strict";
-angular.module("reactSandbox", ["ngRoute", "ngReact", "ngApp.homeCtrl"])
+angular.module("reactSandbox", ["ngRoute", "ngReact", "reactSandbox.homeCtrl","reactSandbox.contactServices"])
 	.config(function($routeProvider){
 		$routeProvider
 			.when("/",{
