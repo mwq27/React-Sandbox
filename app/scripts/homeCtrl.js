@@ -1,8 +1,15 @@
 "use strict";
 angular.module("reactSandbox.homeCtrl", [])
-	.controller("homeCtrl", function($scope){
+	.controller("homeCtrl",["contactServices" ,function($scope, contactServices){
 		$scope.testIf = true;
 		$scope.bindData = "Hello from the Scope";
+
+		$scope.contacts ={};
+		contactServices.getAllContacts().then(function(data){
+			$scope.contacts = data;
+			$log.debug($scope.contacts);
+		});
+
 
 		$scope.mydata = {
 			time : "9AM",
