@@ -1,5 +1,5 @@
 # Getting ReactJS working with AngularJS
-===========
+============
 
 I created this project to try and see what is possible when I try to use ReactJS with an Angular app.  I've tried to answer the questions:
 * How can I re-render a component when my $scope changes?
