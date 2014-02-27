@@ -10,3 +10,7 @@ I created this project to try and see what is possible when I try to use ReactJS
 	* ...nope...
 * Can we update the $scope FROM the React component?
 	* Since the scope is passed in, we can modify it.  Just remember to call scope.$apply() after modifications.
+
+### TODO
+* Add more unit tests for the React components
+* Add unit tests for Angular modules 
