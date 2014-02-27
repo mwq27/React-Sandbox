@@ -29,7 +29,11 @@ module.exports = function(app){
 	app.post('/api/contacts', function(req, res, next){
 		var contact = new Contact(req.body);
 		contact.save(function(err){
-			if(err) return next(err);
+			if(err){
+				console.log(err);
+				res.jsonp(201, err);
+//				return next(err);
+			}
 			res.jsonp(201, contact);
 		});
 	});

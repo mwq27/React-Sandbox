@@ -12,15 +12,9 @@ var ContactSchema = new mongoose.Schema({
 	employer: String,
 	email: {
 		type: String,
-		unique: true,
-		sparse: true,
-		validate: validators.email
 	},
 	phone: {
 			type: String,
-			unique: true,
-			sparse: true,
-			validate: validators.phone
 	},
 	date: { type: Date, default: Date.now, required: true }
 });

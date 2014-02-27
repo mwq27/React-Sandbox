@@ -1,48 +1,35 @@
 /**
  * @jsx React.DOM
  */
-var ContactBox = React.createClass({
+window.ContactBox = React.createClass({
+	mixins : [React.addons.LinkedStateMixin],
 	getInitialState: function(){
-		return {data:[]};
-	},
-
-	loadContactsFromServer : function(){
-		$.ajax({
-			url : this.props.url,
-			dataType :"jsonp",
-			jsonpCallback : 'callback'
-		}).done(function(msg){
-				this.setState({data : msg});
-			}.bind(this))
-			.fail(function(xhr, status, err){
-				console.error("error" + err);
-			}.bind(this));
+		return {
+			data : []
+		};
 	},
 	componentWillMount : function(){
-		this.loadContactsFromServer();
+		var scope = this.props.scope;
+		scope.ContactBox.react = this;
+		scope.$apply();
+		scope.getAllContacts();
 	},
 
 	handleContactSubmit: function(contact){
-		$.ajax({
-			type : "POST",
-			url: "http://localhost:4000/api/contacts",
-			dataType: "json",
-			data : contact,
-			success : function(msg){
-				this.loadContactsFromServer();
-			}.bind(this)
-		});
+		var scope = this.props.scope;
+			scope.saveNewContact(contact);
 	},
 	render : function(){
-		return (
-			<div className="contactBox row">
-				<h1>Contacts</h1>
-				<NewContact onContactSubmit={this.handleContactSubmit} />
-				<ContactList data={this.state.data} />
+		var scope = this.props.scope,
+			html = [];
+		html.push(<div className="contactBox row">
+			<h3>Contacts</h3>
+			<NewContact onContactSubmit={this.handleContactSubmit} />
+			<ContactList data={this.state.data} />
+		</div>);
 
-			</div>
-		)
+		return (
+			<div>{html[0]}</div>
+		);
 	}
 });
-
-React.renderComponent(<ContactBox url="http://localhost:4000/api/contacts?callback=?"/>, document.getElementById('example'));

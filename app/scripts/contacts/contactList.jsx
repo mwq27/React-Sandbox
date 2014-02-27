@@ -1,10 +1,8 @@
 /**
  * @jsx React.DOM
  */
-var ContactList = React.createClass({
-
+window.ContactList = React.createClass({
 	render : function(){
-		console.log(this.props.data);
 		var contactNodes;
 		if(!this.props.data.map){
 			contactNodes = <Contact name={this.props.data.name}
@@ -16,16 +14,23 @@ var ContactList = React.createClass({
 				if(contact.results && contact.results === false){
 					return "No contacts available";
 				}
-				return <Contact name={contact.name} email={contact.email} phone={contact.phone} occupation={contact.occupation} nickname={contact.nickname} > </Contact>;
+				return <Contact name={contact.name} email={contact.email} phone={contact.phone}> </Contact>;
 			});
 		}
-
-
 		return (
-			<div className="large-8 columns">
-			<ul className="contactList circle inline-list">
-				{contactNodes}
-			</ul>
+			<div className="large-6 columns">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone</th>
+						</tr>
+					</thead>
+					<tbody>
+					{contactNodes}
+					</tbody>
+				</table>
 			</div>
 		);
 	}

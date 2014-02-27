@@ -37,42 +37,14 @@ var APP = React.createClass({displayName: 'APP',
 //	componentWillUpdate : function(nextProps, nextState){
 //		console.log(nextProps, nextState);
 //	},
-//	handleClick : function(){
-//		$.get('scripts/data2.json', function(result){
-//			this.setState({
-//				date: result.date,
-//				status : result.status,
-//				code : result.code
-//			});
-//		}.bind(this));
-//	},
+	handleClick : function(param){
+		alert(param);
+	},
 	render: function(){
-		var item = [];
-
-		for(var x=0; x < 1000; x++){
-			item.push( React.DOM.fieldset(null, 
-				React.DOM.legend(null, "Add New Contact"),
-				React.DOM.label( {htmlFor:"name"}, 
-					React.DOM.input( {type:"text", placeholder:"Name", ref:"name"})
-				),
-				React.DOM.label( {htmlFor:"lastname"}, 
-					React.DOM.input( {type:"text", placeholder:"Occupation", name:"occupation", ref:"occupation"})
-				),
-				React.DOM.label( {htmlFor:"email"}, 
-					React.DOM.input( {type:"text", placeholder:"nickname", ref:"nickname"})
-				),
-				React.DOM.label( {htmlFor:"email"}, 
-					React.DOM.input( {type:"email", placeholder:"Email", ref:"email"})
-				),
-				React.DOM.label( {htmlFor:"phone"}, 
-					React.DOM.input( {type:"text", placeholder:"Phone Number", ref:"phone"})
-				),
-
-				React.DOM.button( {type:"submit", className:"button"}, "Save")
-			) )
-		}
 		return (
-			React.DOM.div(null, item)
+			React.DOM.div(null, 
+				React.DOM.button( {onClick:this.handleClick("yoo")}, "CLick Me")
+			)
 			)
 
 	}

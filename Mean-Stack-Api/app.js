@@ -13,6 +13,7 @@ require('./config/express')(app);
 
 //Routing
 require('./routes/app')(app);
+require('./routes/api/auth')(app);
 require('./routes/api/contacts')(app);
 
 //Expose

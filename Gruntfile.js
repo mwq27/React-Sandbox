@@ -16,7 +16,6 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('jit-grunt')(grunt);
 
-
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -38,7 +37,7 @@ module.exports = function (grunt) {
             },
 	        jsx: {
 		       files : ['app/scripts/**/*.jsx'],
-		       tasks : ['newer:react']
+		       tasks : ['react']
 	        },
             jstest: {
                 files: ['test/spec/{,*/}*.js'],
@@ -47,9 +46,9 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            sass: {
+            compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:server', 'autoprefixer']
+                tasks: ['compass:server', 'autoprefixer']
             },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -66,18 +65,6 @@ module.exports = function (grunt) {
                 ]
             }
         },
-
-	    sass: {
-		    server :{
-			    options: {
-				    includePaths: ['<%= yeoman.app %>/bower_components/bourbon/app/assets/stylesheets'],
-				    outputStyle: 'nested'
-			    },
-			    files: {
-				    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
-			    }
-		    }
-	    },
 	    react: {
 		    dynamic_mappings: {
 			    files: [

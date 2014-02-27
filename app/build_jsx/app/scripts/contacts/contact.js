@@ -1,12 +1,11 @@
 /** @jsx React.DOM */
-var Contact = React.createClass({displayName: 'Contact',
+window.Contact = React.createClass({
 	render : function(){
 		return (
-			React.DOM.li( {className:""}, 
-				React.DOM.p(null, React.DOM.strong(null, "Name:"), this.props.name),
-				React.DOM.p(null, React.DOM.strong(null, "Email:"), this.props.email),
-				React.DOM.p(null, React.DOM.strong(null, "Phone:"), this.props.phone),
-				React.DOM.p(null, React.DOM.strong(null, "Occupation:"), this.props.occupation)
+			React.DOM.tr( {className:""}, 
+				React.DOM.td(null, this.props.name),
+				React.DOM.td(null, this.props.email),
+				React.DOM.td(null, this.props.phone)
 			)
 		);
 	}

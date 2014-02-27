@@ -21,12 +21,14 @@
         <!-- endbuild -->
 
     </head>
-    <body>
+    <body ng-app="reactSandbox">
     <!-- render function can only return a single node.  You can have child nodes inside of one node, but never 2 sibling nodes -->
-        <div class="container">
-            <h1>My React component</h1>
+        <div class="container row">
+            <div ng-react-component="Header"></div>
 
-            <div id="example" class="large-12 small-12"></div>
+            <div id="example"></div>
+
+            <ng-view></ng-view>
         </div>
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -39,10 +41,31 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="bower_components/react/react.js"></script>
-        <script src="build_jsx/app/scripts/newComponent.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/react/react-with-addons.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="scripts/ngApp.js"></script>
+        <script src="scripts/contacts/contactServices.js"></script>
+        <script src="scripts/auth/controllers/authorization.js"></script>
+        <script src="scripts/auth/services/authorization.js"></script>
 
 
-        <!-- endbuild -->
+        <script src="scripts/homeCtrl.js"></script>
+        <script src="scripts/config/appConstants.js"></script>
+        <script src="build_jsx/app/scripts/auth/loginArea.js"></script>
+        <script src="build_jsx/app/scripts/auth/LoggedInComp.js"></script>
+        <script src="build_jsx/app/scripts/auth/LoggedOutComp.js"></script>
+        <script src="build_jsx/app/scripts/contacts/contact.js"></script>
+        <script src="build_jsx/app/scripts/contacts/contactList.js"></script>
+        <script src="build_jsx/app/scripts/contacts/contactForm.js"></script>
+        <script src="build_jsx/app/scripts/contacts/contactBox.js"></script>
+        <script src="build_jsx/app/scripts/header/header.js"></script>
+
+        <script src="bower_components/ngReact/ngReact.js"></script>
+
+
+
+    <!-- endbuild -->
 </body>
 </html>

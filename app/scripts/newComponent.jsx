@@ -37,42 +37,14 @@ var APP = React.createClass({
 //	componentWillUpdate : function(nextProps, nextState){
 //		console.log(nextProps, nextState);
 //	},
-//	handleClick : function(){
-//		$.get('scripts/data2.json', function(result){
-//			this.setState({
-//				date: result.date,
-//				status : result.status,
-//				code : result.code
-//			});
-//		}.bind(this));
-//	},
+	handleClick : function(param){
+		alert(param);
+	},
 	render: function(){
-		var item = [];
-
-		for(var x=0; x < 1000; x++){
-			item.push( <fieldset>
-				<legend>Add New Contact</legend>
-				<label htmlFor="name">
-					<input type="text" placeholder="Name" ref="name"/>
-				</label>
-				<label htmlFor="lastname">
-					<input type="text" placeholder="Occupation" name="occupation" ref="occupation"/>
-				</label>
-				<label htmlFor="email">
-					<input type="text" placeholder="nickname" ref="nickname"/>
-				</label>
-				<label htmlFor="email">
-					<input type="email" placeholder="Email" ref="email"/>
-				</label>
-				<label htmlFor="phone">
-					<input type="text" placeholder="Phone Number" ref="phone"/>
-				</label>
-
-				<button type="submit" className="button">Save</button>
-			</fieldset> )
-		}
 		return (
-			<div>{item}</div>
+			<div>
+				<button onClick={this.handleClick("yoo")}>CLick Me</button>
+			</div>
 			)
 
 	}

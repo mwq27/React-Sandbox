@@ -1,6 +1,8 @@
 'use strict';
 
-var express = require('express');
+var express = require('express'),
+	expressJwt = require('express-jwt'),
+	jwt = require('jsonwebtoken');
 /**
  * If using mongo stored sessions
  *
@@ -28,6 +30,7 @@ module.exports = function(app){
 	 * app.set('view engine', 'jade');
 	 */
 
+
 	app.enable('jsonp callback');
 	app.configure(function(){
 		/**
@@ -35,6 +38,22 @@ module.exports = function(app){
 		 *
 		 * app.use(express.cookieParser());
 		 */
+		var enableCORS = function(req, res, next) {
+			res.header('Access-Control-Allow-Origin', '*');
+			res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+			res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+			// intercept OPTIONS method
+			if ('OPTIONS' == req.method) {
+				res.send(200);
+			}
+			else {
+				next();
+			}
+		};
+		var secret = "1111111111";
+		app.use(enableCORS);
+		app.use('/user', expressJwt({secret : secret}));
 
 			// Body parsing middleware should be above methodOverride
 		app.use(express.urlencoded());

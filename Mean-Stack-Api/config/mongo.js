@@ -3,11 +3,13 @@
 var mongoose = require('mongoose'),
 	fs = require('fs'),
 	_ = require('underscore'),
-	db, connection;
+	db, connection,
+	config = require('yaml-config'),
+	settings = config.readConfig('./config/myconfig.yaml');
 
 module.exports = function(app){
 
-	db = mongoose.connect("mongodb://mwq27:sandbox@troup.mongohq.com:10005/development");
+	db = mongoose.connect("mongodb://"+settings.mongohq.user+":"+settings.mongohq.password+"@troup.mongohq.com:10005/"+settings.mongohq.collection);
 	connection = mongoose.connection;
 
 	var walk = function(path) {
@@ -28,7 +30,7 @@ module.exports = function(app){
 
 	connection.on('error', console.error.bind(console, 'MongoDB Connection Error: '));
 	connection.once('open', function(){
-		//console.log('MongoDB Connection Successful.');
+		console.log('MongoDB Connection Successful.');
 	});
 
 	return db;
