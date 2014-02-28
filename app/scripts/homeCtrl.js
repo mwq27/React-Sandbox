@@ -4,11 +4,19 @@ angular.module("reactSandbox.homeCtrl", [])
 		$scope.testIf = false;
 		$scope.bindData = "Hello from the Scope";
 		$scope.contacts ={};
+		/**
+		 * Create an object with the name of a React component.  This way, we can call setState on the correct
+		 * component.
+		 */
 		$scope.ContactBox = {};
 
 		$scope.saveNewContact = function(contact){
 			contactServices.saveNewContact(contact).then(function(data){
 				$scope.contacts = data;
+				/*
+				In the ContactBox component, I attach React to the scope.  This way, I can use React's methods
+				like below.  setState will re-render the component.
+				 */
 				$scope.ContactBox.react.setState({data: $scope.contacts});
 			});
 		};

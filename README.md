@@ -10,3 +10,39 @@ I created this project to try and see what is possible when I try to use ReactJS
 	* ...nope...
 * Can we update the $scope FROM the React component?
 	* Since the scope is passed in, we can modify it.  Just remember to call scope.$apply() after modifications.
+
+In loginArea.jsx component:
+
+```js
+componentWillMount : function(){
+	var scope = this.props.scope;
+	scope.LoginArea.react = this;
+},
+```
+
+In authorization controller we can now have :
+
+```js
+$scope.LoginArea = {};
+$scope.authenticateUser = function(user){
+	var username = user.username,
+		password = user.password;
+	auth.login(username, password)
+		.then(function(data){
+			$scope.user.loggedin = true;
+			$scope.LoginArea.react.setState({loggedIn: true});
+		}, function(data){
+			$log.error(data);
+			$log.error("error logging in");
+		});
+};
+```
+
+The important line being:
+
+```js
+$scope.LoginArea.react.setState({loggedIn: true});
+```
+
+This is where I can call setState, thus re-rendering the LoginArea component.
+

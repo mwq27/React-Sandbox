@@ -1,5 +1,9 @@
 angular.module("reactSandbox.controllers.authorization", [])
 	.controller("authorization", ["$scope", "$log","authService","$rootScope", function($scope, $log, auth,$rootScope){
+		/**
+		 * Create an object with the name of a React component.  This way, we can call setState on the correct
+		 * component.
+		 */
 		$scope.LoginArea = {};
 		$scope.authenticateUser = function(user){
 			var username = user.username,
