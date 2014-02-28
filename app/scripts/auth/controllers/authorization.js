@@ -13,7 +13,6 @@ angular.module("reactSandbox.controllers.authorization", [])
 					$scope.user.loggedin = true;
 					$scope.LoginArea.react.setState({loggedIn: true});
 				}, function(data){
-					$log.error(data);
 					$log.error("error logging in");
 				});
 		};
