@@ -32,10 +32,24 @@ describe("ContactServices Tests", function(){
 	});
 
 	it("Should be able to save a new contact", function(){
-		$httpBackend.whenPOST(config.host + "/api/contacts").respond(200, '');
-		var resp = contactServices.saveNewContact({"name" : "Drake"});
+
+		var allUsers = [
+			{
+				name: "Marques"
+			}
+		];
+
+
+		$httpBackend.whenJSONP(config.host + "/api/contacts?callback=JSON_CALLBACK").respond(allUsers);
+
+		$httpBackend.whenPOST(config.host + "/api/contacts").respond(function(method, url, data){
+			allUsers.push(angular.fromJson(data));
+			return [200];
+		});
+		var resp = contactServices.saveNewContact({name : "Drake"});
+
 		$httpBackend.flush();
-		expect(resp).toBe(true);
+		expect(allUsers[1].name).toBe("Drake");
 	});
 
 });

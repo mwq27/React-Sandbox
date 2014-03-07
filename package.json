@@ -40,7 +40,10 @@
     "grunt-react": "~0.6.0",
     "jit-grunt": "~0.2.1",
     "grunt-sass": "~0.10.0",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "jsdom": "~0.10.1",
+    "jasmine-node": "~1.13.1",
+    "jquery": "~2.1.0"
   },
   "engines": {
     "node": ">=0.8.0"

@@ -18,8 +18,9 @@ module.exports = function(config) {
 			'app/bower_components/angular-mocks/angular-mocks.js',
 			'app/bower_components/angular-route/angular-route.js',
 			'app/bower_components/underscore/underscore.js',
-			'app/bower_components/react/react.js',
+			'app/bower_components/react/react-with-addons.js',
 			'app/bower_components/ngReact/ngReact.js',
+			'app/build_jsx/app/scripts/**/*.js',
 			'app/scripts/**/*.js',
 			'app/scripts/**/tests/*.js'
 		],

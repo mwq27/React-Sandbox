@@ -5,7 +5,7 @@ window.Header = React.createClass({
 	render : function(){
 		return (
 			<header className="row">
-				<h1>React working with Angular</h1>
+				<h1>{this.props.children}</h1>
 			</header>
 		);
 	}
