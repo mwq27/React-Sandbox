@@ -21,8 +21,10 @@ module.exports = function(config) {
 			'app/bower_components/react/react-with-addons.js',
 			'app/bower_components/ngReact/ngReact.js',
 			'app/build_jsx/app/scripts/**/*.js',
+			'app/build_jsx/app/scripts/**/*Spec.js',
 			'app/scripts/**/*.js',
-			'app/scripts/**/tests/*.js'
+			'app/scripts/**/tests/*.js',
+			'test/jasmine-react.js'
 		],
 
 
@@ -34,8 +36,10 @@ module.exports = function(config) {
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-		reporters: ['progress'],
-
+		reporters: ['progress', 'coverage'],
+		preprocessors: {
+			'app/scripts/**/*.js': ['coverage']
+		},
 
 		// web server port
 		port: 9876,

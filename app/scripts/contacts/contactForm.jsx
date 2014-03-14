@@ -6,18 +6,30 @@ window.NewContact = React.createClass({
 		return {
 			data : '',
 			disabled: true,
-			name : null
+			name : null,
+			invalid: false
+		}
+	},
+
+	getDefaultProps : function(){
+		return {
+			invalid : false
 		}
 	},
 	handleSubmit: function(){
+		this.props.invalid = true;
 		var name = this.refs.name.getDOMNode().value.trim(),
 			email = this.refs.email.getDOMNode().value.trim(),
 			phone = this.refs.phone.getDOMNode().value.trim();
-
-		this.props.onContactSubmit({name: name, email: email, phone: phone});
-		if(!name) {
+		if(name === '') {
+			this.props.invalid = true;
+			this.setState({
+				invalid: true
+			});
 			return false;
 		}
+		this.props.onContactSubmit({name: name, email: email, phone: phone});
+
 
 		this.refs.name.getDOMNode().value = '';
 		this.refs.email.getDOMNode().value = '';
@@ -55,8 +67,7 @@ window.NewContact = React.createClass({
 
 	render: function(){
 		return (
-			<div className="large-6 columns">
-				<form onSubmit={this.handleSubmit}>
+				<form className="large-6 columns" onSubmit={this.handleSubmit}>
 					<fieldset>
 						<legend>Add New Contact</legend>
 						<label htmlFor="name">
@@ -64,16 +75,15 @@ window.NewContact = React.createClass({
 						</label>
 
 						<label htmlFor="email">
-							<input type="email" placeholder="Email" value={this.state.email} ref="email"/>
+							<input type="email" placeholder="Email" onChange={this.emailState} value={this.state.email} ref="email"/>
 						</label>
 						<label htmlFor="phone">
 							<input type="text" placeholder="Phone Number" value={this.state.phone} ref="phone"/>
 						</label>
 
-						<button type="submit"  className="button">Save</button>
+						<button type="submit" className="button {this.state.disabled ? 'disabled' : ''}">Save</button>
 					</fieldset>
 				</form>
-			</div>
 			)
 
 	}

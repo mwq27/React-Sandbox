@@ -8,7 +8,6 @@ describe("First Test", function(){
 	it("SHould do something here ", function(){
 		var header = Header(null, "Something Here");
 		ReactTestUtils.renderIntoDocument(header);
-		var something = 1;
-		expect(something).toBe(1);
+		expect(ReactTestUtils.isCompositeComponent(header)).toBe(true);
 	});
 });

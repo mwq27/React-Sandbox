@@ -25,9 +25,7 @@
     <!-- render function can only return a single node.  You can have child nodes inside of one node, but never 2 sibling nodes -->
         <div class="container row">
             <div ng-react-component="Header"></div>
-
             <div id="example"></div>
-
             <ng-view></ng-view>
         </div>
         <!-- build:js scripts/vendor.js -->
@@ -49,10 +47,14 @@
         <script src="scripts/contacts/contactServices.js"></script>
         <script src="scripts/auth/controllers/authorization.js"></script>
         <script src="scripts/auth/services/authorization.js"></script>
+        <script src="scripts/auth/services/authInterceptor.js"></script>
 
 
         <script src="scripts/homeCtrl.js"></script>
         <script src="scripts/config/appConstants.js"></script>
+
+
+
         <script src="build_jsx/app/scripts/auth/loginArea.js"></script>
         <script src="build_jsx/app/scripts/auth/LoggedInComp.js"></script>
         <script src="build_jsx/app/scripts/auth/LoggedOutComp.js"></script>
@@ -63,9 +65,6 @@
         <script src="build_jsx/app/scripts/header/header.js"></script>
 
         <script src="bower_components/ngReact/ngReact.js"></script>
-
-
-
-    <!-- endbuild -->
+        <!-- endbuild -->
 </body>
 </html>

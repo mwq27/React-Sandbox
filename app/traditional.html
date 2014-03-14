@@ -12,42 +12,92 @@
     <div id="example" class="large-12 small-12"></div>
 </div>
 <div class="form">
-    <p>{this.state.data}</p>
-    <form onSubmit={this.handleSubmit}>
-        <fieldset>
-            <legend>Add New Contact</legend>
-            <label htmlFor="name">
-                <input type="text" placeholder="Name" ref="name"/>
-            </label>
-            <label htmlFor="lastname">
-                <input type="text" placeholder="Occupation" name="occupation" ref="occupation"/>
-            </label>
-            <label htmlFor="email">
-                <input type="text" placeholder="nickname" ref="nickname"/>
-            </label>
-            <label htmlFor="email">
-                <input type="email" placeholder="Email" ref="email"/>
-            </label>
-            <label htmlFor="phone">
-                <input type="text" placeholder="Phone Number" ref="phone"/>
-            </label>
+    <div class="pinpad-container syw-redemption-pin" data-role="none">
+        <section class="pinpad-main pinpad-content">
+            <header class="title">
+                <h2>Enter your 4-8 digit SYW PIN</h2>
+                <p></p>
+            </header>
+            <div class="pinpad-readout"></div>
+            <fieldset class="pinpad-keypad cf" data-role="none">
+                <fieldset class="top">
+                    <button data-role="none" data-number=1 class="single">
+                        <span>1</span>
+                    </button>
+                    <button data-role="none" data-number=2>
+                        <span>2</span>
+                        <span>abc</span>
+                    </button>
+                    <button data-role="none" data-number=3>
+                        <span>3</span>
+                        <span>def</span>
+                    </button>
+                </fieldset>
+                <fieldset class="second">
+                    <button data-role="none" data-number=4>
+                        <span>4</span>
+                        <span>ghi</span>
+                    </button>
+                    <button data-role="none" data-number=5>
+                        <span>5</span>
+                        <span>jkl</span>
+                    </button>
+                    <button data-role="none" data-number=6>
+                        <span>6</span>
+                        <span>mno</span>
+                    </button>
+                </fieldset>
+                <fieldset class="third">
+                    <button data-role="none" data-number=7>
+                        <span>7</span>
+                        <span>pqrs</span>
+                    </button>
+                    <button data-role="none" data-number=8>
+                        <span>8</span>
+                        <span>tuv</span>
+                    </button>
+                    <button data-role="none" data-number=9>
+                        <span>9</span>
+                        <span>wxyz</span>
+                    </button>
+                </fieldset>
+                <fieldset class="bottom">
+                    <button data-role="none" class="clear">
+                        <span></span>
+                        <span>Clear All</span>
+                    </button>
+                    <button data-role="none" data-number=0>
+                        <span>0</span>
+                    </button>
+                    <button data-role="none" class="delete">
+                    </button>
+                </fieldset>
 
-            <button type="submit" className="button">Save</button>
-        </fieldset>
-    </form>
+            </fieldset>
+
+        </section>
+
+    </div>
 </div>
 <script src="bower_components/jquery/jquery.min.js"></script>
+<script src="scripts/pinpad.js"></script>
 <script>
-    $(function(){
-        var examp = $("#example"),
-                elems = '',
-                html = $(".form").html();
+    pinpad = $(".pinpad-readout").pinpad({  // attach pinpad handler and set options
+        formatter: "PIN",
+        buttonClass: ".pin-keypad button",
+        newCharHangTime: 1000,
+        maxLength: 8,
+        textChange: function(e) {   // enable/disable pinpad buttons based on user-entered data being valid
 
-        for(var x = 0; x < 1000; x++){
-            elems += html;
         }
-        examp.append(elems);
     });
+
+
+
+
+
+
+
 
 </script>
 </body>
